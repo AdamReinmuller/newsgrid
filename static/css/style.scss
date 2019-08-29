@@ -1,0 +1,148 @@
+@import 'theme';
+@import 'utility';
+
+
+// Layout
+body {
+    background: $light-color;
+    line-height: 1.5;
+    font-family: 'Lato', sans-serif;
+    height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Staatliches';
+    margin-bottom: 0.55rem;
+    line-height: 1.3;
+}
+
+
+// Navbar
+#main-nav {
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+
+    .container {
+        display: grid;
+        grid-template-columns: 6fr 3fr 2fr;
+        padding: 1rem;
+        align-items: center;
+    }
+
+    .logo {
+        width: 180px;
+    }
+
+    ul {
+        justify-self: end;
+        display: flex;
+
+        li a {
+            padding: 0.75rem;
+            font-weight: bold;
+
+            &.current {
+                background: $primary-color;
+                color: $light-color;
+            }
+
+            &:hover {
+                background: $light-color;
+                color: $dark-color;
+            }
+        }
+    }
+
+    .social {
+        justify-self: center;
+
+        i {
+            color: #777;
+            margin-right: 0.5rem;
+        }
+    }
+}
+
+
+// Showcase
+#showcase {
+    color: #fff;
+    background: #333;
+    padding: 2rem;
+    position: relative;
+
+    &:before {
+        content: '';
+        background: url('/static/img/featured.jpg') no-repeat center center/cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.4;
+    }
+
+    .showcase-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+        align-items: center;
+        height: 50vh;
+    }
+
+    .showcase-content {
+        z-index: 1;
+
+        p {
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+// Articles
+#articles {
+
+    .articles-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+
+        >*:first-child {
+            grid-column: 1 /span 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        >*:nth-child(2) {
+            background: $dark-color;
+            color: #fff;
+
+            a {
+                color: #fff;
+            }
+        }
+
+        >*:nth-child(6) {
+            background: $primary-color;
+            color: #fff;
+
+            a {
+                color: #fff;
+            }
+        }
+
+        >*:last-child {
+            grid-column: 2 /span 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
